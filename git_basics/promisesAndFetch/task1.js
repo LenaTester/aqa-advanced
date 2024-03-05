@@ -7,3 +7,4 @@ function showTextWithTimeout(text, timeout) {
 }
 
 showTextWithTimeout('Hello, Java Script!', 5000);
+showTextWithTimeout("Hello, Java Script!", 1000)
