@@ -1,7 +1,7 @@
 // reversing string
 
 function reverseString(string) {
-    console.log(string.split('').reverse().join(''))
+  console.log(string.split('').reverse().join(''));
 }
 
-reverseString('JavaScript')
+reverseString('JavaScript');

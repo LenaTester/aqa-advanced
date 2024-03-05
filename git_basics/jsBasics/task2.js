@@ -1,7 +1,8 @@
 // concatenation practice
 
-let firstPersonName = 'Robert'
-let secondPersonName = 'Sophia'
+let firstPersonName = 'Robert';
+let secondPersonName = 'Sophia';
 
-let greetingMessage = 'Hello ' + firstPersonName + ' and ' + secondPersonName + '!'
-console.log(greetingMessage)
+let greetingMessage =
+  'Hello ' + firstPersonName + ' and ' + secondPersonName + '!';
+console.log(greetingMessage);
