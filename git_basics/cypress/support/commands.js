@@ -26,10 +26,23 @@
 
 /// <reference types = 'Cypress' />
 /// <reference types = 'cypress-xpath' />
-import 'cypress-iframe'
+
+
+
+Cypress.Commands.add('login', () => {
+  cy.visit('https://qauto.forstudy.space/panel/garage', {
+    failOnStatusCode: false,
+    auth: {
+      username: 'guest',
+      password: 'welcome2qauto',
+    },
+  })
+
+})
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
     // failing the test
     return false
   })
+

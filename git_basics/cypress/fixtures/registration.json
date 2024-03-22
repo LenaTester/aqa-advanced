@@ -1,0 +1,26 @@
+[
+  {
+  "name": "John",
+  "last_name": "Andersen",
+  "email": "johna@gmail.com",
+  "password": "John_pass123",
+  "re_enter_password": "John_pass123"
+},
+
+{
+  "name": "Jane_123",
+  "last_name": "Williams",
+  "email": "janew@gmail.com",
+  "password": "Jane_pass123",
+  "re_enter_password": "Jane_pass123"
+},
+
+{
+  "name": "Robert",
+  "last_name": "Miller",
+  "email": "robertm@gmail.com",
+  "password": "Robert_pass123",
+  "re_enter_password": "Robert_pass456"
+}
+
+]
