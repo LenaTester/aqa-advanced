@@ -16,7 +16,7 @@ describe('adding car tests', () => {
     cy.get(garage_page.selectBrandDropdown).select(randomOptionBrand)
     cy.get(garage_page.selectModelDropdownOptions).then(($elements) => {
     const randomOptionModel = Math.floor(Math.random() * $elements.length)
-    cy.get(garage_page.selectBrandDropdown).select(randomOptionModel)
+    cy.get(garage_page.selectModelDropdown).select(randomOptionModel)
     const randomMileage = Math.floor(Math.random()*1000) + 1
     cy.get(garage_page.inputMileageField).type(randomMileage)
     })
