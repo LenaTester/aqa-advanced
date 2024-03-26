@@ -1,7 +1,6 @@
 /// <reference types = 'Cypress' />
 /// <reference types = 'cypress-xpath' />
 import { LoginPage } from "../pages/LoginPage"
-import { GaragePage } from "../pages/GaragePage"
 
 Cypress.Commands.add('login_basic_auth', () => {
   cy.visit(`${Cypress.env('baseUrl')}/panel/garage`, {
