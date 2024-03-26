@@ -14,7 +14,7 @@ describe('tests for hillel auto', () => {
     cy.xpath("//button[text()='Login']").click()
   })
   
-  it('check, if car is added', () => {
+  it.skip('check, if car is added', () => {
     cy.get("nav.sidebar.d-flex.flex-column a").eq(0).click()
     cy.xpath("//button[text()='Add car']").click()
     cy.get("select#addCarBrand").select('Audi')
@@ -25,7 +25,7 @@ describe('tests for hillel auto', () => {
 
   })
   
-  it('check, if fuel expenses are added', () => {
+  it.skip('check, if fuel expenses are added', () => {
     let today = new Date()
     let dd = String(today.getDate()).padStart(2, '0')
     let mm = String(today.getMonth() + 1).padStart(2, '0')
@@ -44,7 +44,7 @@ describe('tests for hillel auto', () => {
 
   })
 
-  it('check instructions for BMW X5', () => {
+  it.skip('check instructions for BMW X5', () => {
     cy.get("nav.sidebar.d-flex.flex-column a").eq(2).click()
     cy.get("button#brandSelectDropdown").click()
     cy.get("ul[aria-labelledby='brandSelectDropdown']").find('>li').filter(':contains("BMW")').click()

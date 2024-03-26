@@ -4,7 +4,9 @@
   "description": "examples of js code",
   "main": "types_of_data.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:run:headed": "npx cypress run -b chrome --headed --env urlFromCli=$ENV_URL --spec",
+    "cy:run:headless": "npx cypress run -b chrome --headless --spec"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,7 @@
   "devDependencies": {
     "cypress": "^13.7.0",
     "cypress-iframe": "^1.0.1",
+    "cypress-mochawesome-reporter": "^3.8.2",
     "cypress-xpath": "^2.0.1"
   }
 }
