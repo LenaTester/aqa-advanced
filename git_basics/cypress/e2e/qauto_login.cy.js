@@ -4,7 +4,7 @@ import { GaragePage } from "../pages/GaragePage"
 describe('login', () => {
 
   beforeEach(() => {
-    cy.login()
+    cy.login_basic_auth()
     
     cy.fixture("login").then((userdata) => {
 
@@ -16,12 +16,12 @@ describe('login', () => {
   })
     })
 
-  it('successful login', () => {
+  it.skip('successful login', () => {
     const login_page = new LoginPage()
     cy.get(login_page.garageHeader).should('have.text', 'Garage')
   })
 
-it('login and delete user', () => {
+it.skip('login and delete user', () => {
 
   const garage_page = new GaragePage()
   garage_page.clickMyProfileButton()

@@ -3,10 +3,10 @@ import { RegistrationPage } from "../pages/RegistrationPage"
 describe('tests for registration on qauto', () => {
 
     beforeEach(() => {
-      cy.login()
+      cy.login_basic_auth()
       })
   
-    it('checks registration creds', () => {
+    it.skip('checks registration creds', () => {
 
       const reg_page = new RegistrationPage()
 

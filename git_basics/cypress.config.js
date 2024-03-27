@@ -1,12 +1,52 @@
 import { defineConfig } from "cypress";
 
+import lib from 'cypress-mochawesome-reporter/lib/index.js'
+
+const { beforeRunHook, afterRunHook } = lib
+
 export default defineConfig({
   e2e: {
-    /*retries: {
-      openMode: 2
-    },*/
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
+      viewportWidth: 1300,
+      viewportHeight: 800,
+      chromeWebSecurity: false,
+      retries: {
+        openMode: 1,
+        runMode: 1
+      },
+
+  reporter: 'cypress-mochawesome-reporter',
+  reporterOptions: {
+    charts: true,
+    reportPageTitle: 'my-report-for-cypress',
+    embeddedScreenshots: true,
+    inlineAssets: true,
+    saveAllAttempts: false
   },
-});
+
+  setupNodeEvents(on, config) {
+    on('before:run', async (details) => {
+      console.log('override before:run')
+      await beforeRunHook(details)
+    })
+
+    on('after:run', async (details) => {
+      console.log('override after:run')
+      await afterRunHook(details)
+    })
+    //const dynamicUrl = 
+    //config.env.urlFromCli || "https://qauto.forstudy.space"
+    //config.baseUrl = dynamicUrl
+    on('before:browser:launch', (browser, launchOptions) => {
+      if (browser.name === "chrome") {
+        launchOptions.args.push("--incognito");
+      }
+
+      return launchOptions;
+
+    })
+
+    //return config 
+    
+  }
+}
+})

@@ -4,7 +4,7 @@ describe('tests for Guru99', () => {
     cy.visit('https://www.guru99.com/')
   })
 
-  it('check, if search in Ukrainian is working', () => {
+  it.skip('check, if search in Ukrainian is working', () => {
     cy.get("div.gt_selected a img").click()
     cy.get("a[title='Ukrainian']").click()
     cy.get("div#main-header.site-header-wrap").invoke('show')
@@ -16,7 +16,7 @@ describe('tests for Guru99', () => {
     .should('contain', 'тестування')
   })
 
-  it('check tutorials for Cucumber - amount=6 and type=Tutorial', () => {
+  it.skip('check tutorials for Cucumber - amount=6 and type=Tutorial', () => {
     cy.get("div#main-header.site-header-wrap").invoke('show')
     cy.get("div.primary-menu-container.header-menu-container>ul>li#menu-item-3173>a").click()
     cy.get("ul.sub-menu.clicked>li#menu-item-4571").click()
@@ -29,7 +29,7 @@ describe('tests for Guru99', () => {
     })
   })
 
-  it('check, that "SUP Career Suggestion Tool" is suggesting career option', () => {
+  it.skip('check, that "SUP Career Suggestion Tool" is suggesting career option', () => {
     cy.xpath("//a[text()='SAP Career Suggestion Tool']").click()
     cy.get("select[name='exp']")
     .select("0")

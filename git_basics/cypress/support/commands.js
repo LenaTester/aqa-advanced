@@ -1,43 +1,24 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-
 /// <reference types = 'Cypress' />
 /// <reference types = 'cypress-xpath' />
+import { LoginPage } from "../pages/LoginPage"
 
-
-
-Cypress.Commands.add('login', () => {
-  cy.visit('https://qauto.forstudy.space/panel/garage', {
+Cypress.Commands.add('login_basic_auth', () => {
+  cy.visit(`${Cypress.env('baseUrl')}/panel/garage`, {
     failOnStatusCode: false,
     auth: {
-      username: 'guest',
-      password: 'welcome2qauto',
-    },
+      username: Cypress.env('credentials_basic_auth').username,
+      password: Cypress.env('credentials_basic_auth').password,
+    }
   })
 
+})
+
+Cypress.Commands.add('login_user1', () => {
+  const login_page = new LoginPage()
+  login_page.clickSignInButton()
+  login_page.setEmail(Cypress.env('credentials_user1').email)
+  login_page.setPassword(Cypress.env('credentials_user1').password)
+  login_page.clickLoginButton()
 })
 
 Cypress.on('uncaught:exception', (err, runnable) => {
