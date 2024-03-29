@@ -4,6 +4,7 @@ export class FuelExpensePage {
     inputTotalExpensesField = "input#addExpenseTotalCost"
     addExpenseButton = "//button[text()='Add']"
     fuelExpenceAddedMessage = "div.alert.alert-success p"
+    expenseTable = "tbody>tr"
 
     inputMileage(new_mileage) {
         cy.get(this.inputMileageField).clear()
@@ -21,4 +22,5 @@ export class FuelExpensePage {
     clickAdd() {
         cy.xpath(this.addExpenseButton).click()
     }
+
 }

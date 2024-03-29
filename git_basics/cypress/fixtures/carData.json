@@ -1,0 +1,12 @@
+{
+  "id": 120768,
+  "carBrandId": 5,
+  "carModelId": 22,
+  "initialMileage": 674,
+  "updatedMileageAt": "2024-03-29T11:55:45.001Z",
+  "carCreatedAt": "2024-03-29T11:55:45.001Z",
+  "mileage": 674,
+  "brand": "Fiat",
+  "model": "Punto",
+  "logo": "fiat.png"
+}
