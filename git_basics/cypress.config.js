@@ -1,5 +1,7 @@
 import { defineConfig } from "cypress";
 
+import { addMatchImageSnapshotPlugin } from 'cypress-image-snapshot/plugin.js';
+
 import lib from 'cypress-mochawesome-reporter/lib/index.js'
 
 const { beforeRunHook, afterRunHook } = lib
@@ -10,8 +12,8 @@ export default defineConfig({
       viewportHeight: 800,
       chromeWebSecurity: false,
       retries: {
-        openMode: 1,
-        runMode: 1
+        openMode: 0,
+        runMode: 0
       },
 
   reporter: 'cypress-mochawesome-reporter',
@@ -33,6 +35,9 @@ export default defineConfig({
       console.log('override after:run')
       await afterRunHook(details)
     })
+
+    addMatchImageSnapshotPlugin(on);
+
     //const dynamicUrl = 
     //config.env.urlFromCli || "https://qauto.forstudy.space"
     //config.baseUrl = dynamicUrl

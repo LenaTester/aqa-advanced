@@ -1,0 +1,38 @@
+[
+  {
+    "id": 120768,
+    "carBrandId": 5,
+    "carModelId": 22,
+    "initialMileage": 674,
+    "updatedMileageAt": "2024-03-29T11:55:45.000Z",
+    "carCreatedAt": "2024-03-29T11:55:45.000Z",
+    "mileage": 674,
+    "brand": "Fiat",
+    "model": "Punto",
+    "logo": "fiat.png"
+  },
+  {
+    "id": 120767,
+    "carBrandId": 2,
+    "carModelId": 7,
+    "initialMileage": 534,
+    "updatedMileageAt": "2024-03-29T11:53:53.000Z",
+    "carCreatedAt": "2024-03-29T11:53:43.000Z",
+    "mileage": 1000,
+    "brand": "BMW",
+    "model": "5",
+    "logo": "bmw.png"
+  },
+  {
+    "id": 120766,
+    "carBrandId": 5,
+    "carModelId": 23,
+    "initialMileage": 674,
+    "updatedMileageAt": "2024-03-29T11:52:23.000Z",
+    "carCreatedAt": "2024-03-29T11:52:23.000Z",
+    "mileage": 674,
+    "brand": "Fiat",
+    "model": "Scudo",
+    "logo": "fiat.png"
+  }
+]

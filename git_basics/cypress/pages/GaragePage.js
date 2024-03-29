@@ -13,6 +13,7 @@ export class GaragePage {
     removeAccountButton = '//button[text()="Remove my account"]'
     finalRemoveButton = '//button[text()="Remove"]'
     startPageHeader = 'div.hero-descriptor h1'
+    fuelExpenseLink = "a[routerlink='expenses']"
 
     clickAddCarButton() {
         cy.xpath(this.addCarButton).click()
@@ -40,6 +41,10 @@ export class GaragePage {
 
     clickfinalRemoveButton() {
         cy.xpath(this.finalRemoveButton).click()
+    }
+
+    clickFuelExpenseLink() {
+        cy.get(this.fuelExpenseLink).click()
     }
 
 }

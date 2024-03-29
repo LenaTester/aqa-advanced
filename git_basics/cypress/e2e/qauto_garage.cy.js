@@ -9,6 +9,7 @@ describe('adding car tests', () => {
   })
 
   it('adding car', () => {
+    //adding car from UI
     const garage_page = new GaragePage()
     garage_page.clickAddCarButton()
     cy.get(garage_page.selectBrandDropdownOptions).then(($elements) => {
@@ -21,8 +22,38 @@ describe('adding car tests', () => {
     cy.get(garage_page.inputMileageField).type(randomMileage)
     })
     })
+
+    //interception of response from adding car
+    cy.intercept('POST', '/api/cars').as('getCar')
     garage_page.clickAddCarButtonFinal()
-    cy.get(garage_page.carAddedMessage).should('have.text', 'Car added')
+    //status code validation
+    cy.get('@getCar').its('response.statusCode').should('eq', 201)
+    //saving car data to fixture
+    cy.get('@getCar').then(({response}) => {
+      cy.wrap(response.body.data).as('responseBodyCarData')
+    })
+
+    cy.get('@responseBodyCarData').then((carData) => {
+      cy.writeFile('cypress/fixtures/carData.json', carData)
+    })
     
+    //getting all cars data
+    cy.request({method:'GET', url: '/api/cars'}
+      ).then((response) => {
+        cy.wrap(response.body.data).as('responseBodyCarDataAll')
+        cy.get('@responseBodyCarDataAll').then((carDataAll) => {
+          cy.writeFile('cypress/fixtures/carDataAll.json', carDataAll)
+        })
+    })
+
+    //assertion, that cars list contains new car
+      cy.fixture("carData").then((cardata) => {
+        const newCar = cardata
+        cy.fixture("carDataAll").then((cardata_all) => {
+          const lastCar = cardata_all[0]
+          expect(`${newCar.id}, ${newCar.brand}, ${newCar.model}, ${newCar.mileage}`)
+          .to.equal(`${lastCar.id}, ${lastCar.brand}, ${lastCar.model}, ${lastCar.mileage}`)
+        })
+      })
   })
 })
